@@ -1,15 +1,20 @@
 var mongoose = require('mongoose');            
 
-mongoose.connect('mongodb://106.15.192.128:27017/autu?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false', {
+mongoose.connect('mongodb://106.15.192.128:27017/autuNew?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false', {
     useCreateIndex: true,
     useNewUrlParser: true,
-})     //连接本地数据库blog 
-
+    useUnifiedTopology: true,
+})     //Connecting to a remote database autuNew
+ 
 var db = mongoose.connection;
 
-
 const UseSchema = new mongoose.Schema({
-    username: { type: String, unique: true },
+    // "firstName", "lastName", "email", "password", "bio", "accessLevel"
+    firstName: { type: String },
+    lastName: { type: String },
+    email: { type: String },
+    bio: { type: String },
+    accessLevel: { type: Number},
     password: { type: String, 
         set(val) {
             return require("bcrypt").hashSync(val, 10)
