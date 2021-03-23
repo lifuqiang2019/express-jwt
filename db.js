@@ -1,12 +1,11 @@
 var mongoose = require('mongoose');            
-
-mongoose.connect('mongodb://106.15.192.128:27017/autuNew?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false', {
+let mongodbAlta = "mongodb+srv://978080458:131131@cluster0.9g0na.mongodb.net/jwt-auth?retryWrites=true&w=majority"
+let myRemote = "mongodb://106.15.192.128:27017/autuNew?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false"
+mongoose.connect(mongodbAlta, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })     //Connecting to a remote database autuNew
- 
-var db = mongoose.connection;
 
 const UseSchema = new mongoose.Schema({
     // "firstName", "lastName", "email", "password", "bio", "accessLevel"
